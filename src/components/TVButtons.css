@@ -1,0 +1,14 @@
+.tv-container {
+  width: 100%;
+  height: 10%;
+  margin-top: 2%;
+  display: flex;
+  justify-content: center;
+  align-content: center; }
+  .tv-container .tv-centered-inner {
+    height: 100%;
+    width: 60%;
+    display: flex;
+    justify-content: space-between; }
+    .tv-container .tv-centered-inner .btn {
+      width: 80px; }

@@ -1,0 +1,26 @@
+{
+  "name": "nwb-test",
+  "version": "1.0.0",
+  "description": "Describe nwb-test here",
+  "private": true,
+  "scripts": {
+    "build": "nwb build",
+    "clean": "nwb clean",
+    "start": "nwb serve",
+    "test": "nwb test",
+    "test:watch": "nwb test --server"
+  },
+  "dependencies": {
+    "deepstream.io-client-js": "^0.4.3",
+    "react": "0.14.x",
+    "react-bootstrap": "^0.28.4",
+    "react-dom": "0.14.x",
+    "react-router": "^2.0.1"
+  },
+  "devDependencies": {
+    "nwb": "0.9.x"
+  },
+  "author": "",
+  "license": "MIT",
+  "repository": ""
+}

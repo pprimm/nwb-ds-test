@@ -1,0 +1,19 @@
+h1, .h1 {
+  margin-top: 0; }
+
+.container-flex {
+  display: flex;
+  position: fixed;
+  top: 0;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: 75%;
+  left: 50%;
+  margin-left: -37.5%;
+  height: 100%; }
+
+.home-button {
+  margin-bottom: 20px; }
