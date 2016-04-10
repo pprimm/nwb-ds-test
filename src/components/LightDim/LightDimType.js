@@ -36,24 +36,25 @@ export default class LightDimType extends React.Component {
     this.props.switchHandler('off')
   }
   render () {
-    return <div className = 'container-slider'>
-            <div className='top'>
-              <div className='name'>{this.props.displayName}</div>
-              <div className='percent'>{this.props.value}%</div>
+      //console.log('LightDimType::render()')
+      return <div className = 'container-slider'>
+               <div className='top'>
+                  <div className='name'>{this.props.displayName}</div>
+                  <div className='percent'>{this.props.value}%</div>
+               </div>
+               <div className = 'bottom'>
+                  <div className = 'button button-left'>
+                  <Button bsStyle='primary' onClick = {this._offHandler} >OFF</Button>
+                  </div>
+                  <Slider className='slider'
+                          value = {this.state.sliderLock ? undefined : this.props.value}
+                          onChange = {this.sliderHandler}
+                          onDragStart = {this.lockSlider}
+                          onDragEnd = {this.unlockSlider}/>
+                  <div className='button button-right'>
+                     <Button bsStyle='primary' onClick = {this._onHandler}>ON</Button>
+                  </div>
+               </div>
             </div>
-            <div className = 'bottom'>
-              <div className = 'button button-left'>
-                <Button bsStyle='primary' onClick = {this._offHandler} >OFF</Button>
-              </div>
-              <Slider className='slider'
-                      value = {this.state.sliderLock ? undefined : this.props.value}
-                      onChange = {this.sliderHandler}
-                      onDragStart = {this.lockSlider}
-                      onDragEnd = {this.unlockSlider}/>
-              <div className='button button-right'>
-                <Button bsStyle='primary' onClick = {this._onHandler}>ON</Button>
-              </div>
-            </div>
-           </div>
   }
 }

@@ -5,34 +5,46 @@ import LightOnOffTypeContainer from './LightOnOff/LightOnOffTypeContainer'
 import LightDimTypeContainer from './LightDim/LightDimTypeContainer'
 
 export default class MasterLightContainer extends React.Component {
-  constructor () {
-    super()
+   constructor () {
+      super()
 
-    this.state = {lighstArr: [{
-      ctrlType: 'lightDimType',
-      displayName: 'Family Ceiling',
-      recordName: 'lights/ceiling'
-    }, {
-      ctrlType: 'lighOnOffType',
-      displayName: 'Family Lamp',
-      recordName: 'lights/lamp'
-    }]}
-  }
+      this.state = {
+         lighstArr: [
+            {
+               ctrlType: 'Unknown'
+            }, {
+               ctrlType: 'LightDimType',
+               props: {
+                  displayName: 'Family Ceiling',
+                  recordName: 'lights/ceiling'
+               }
+            }, {
+               ctrlType: 'LightOnOffType',
+               props: {
+                  displayName: 'Family Lamp',
+                  recordName: 'lights/lamp'
+               }
+            }
+         ]
+      }
+      this.factoryList = {}
+      this.factoryList['LightDimType'] = React.createFactory( LightDimTypeContainer )
+      this.factoryList['LightOnOffType'] = React.createFactory( LightOnOffTypeContainer )
+      this.createNewElement = this.createNewElement.bind(this)
+   }
 
-  render () {
-    return <div>
-            {this.state.lighstArr.map(function (curVal, index) {
-              switch (curVal.ctrlType) {
-                case 'lightDimType':
-                  return <LightDimTypeContainer displayName = {curVal.displayName}
-                                                recordName = {curVal.recordName}
-                                                key = {index}/>
-                case 'lighOnOffType':
-                  return <LightOnOffTypeContainer displayName = {curVal.displayName}
-                                                  recordName = {curVal.recordName}
-                                                  key = {index} />
-              }
-            })}
-           </div>
+   createNewElement (item, index) {
+      const factory = this.factoryList[item.ctrlType]
+      if (typeof factory != 'undefined') {
+         let itemProps = item.props;
+         itemProps.key = index;
+         return factory(itemProps)
+      }
+      return null
+   }
+
+   render () {
+      const LightItems = this.state.lighstArr.map(this.createNewElement)
+      return <div>{LightItems}</div>
   }
 }
