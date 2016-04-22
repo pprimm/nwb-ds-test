@@ -8,7 +8,7 @@ const dsOptions = {
    rememberUpgrade: true
 }
 
-let dsClient = deepstream( '10.10.101.35:6020' ,dsOptions ).login({ user: 'webSocketClient', password: 'sesame' });
+let dsClient = deepstream( '10.10.101.31:6020' ,dsOptions ).login({ user: 'webSocketClient', password: 'sesame' });
 
 dsClient.on('error', function(err) {
    console.warn(err);

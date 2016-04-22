@@ -3,7 +3,7 @@
 import React from 'react'
 import { PageHeader, Button, Glyphicon } from 'react-bootstrap'
 import history from '../history'
-import MasterLightContainer from '../components/MasterLightContainer'
+import LightListContainer from '../components/LightListContainer'
 
 export default class LightsPage extends React.Component {
   constructor () {
@@ -26,7 +26,7 @@ export default class LightsPage extends React.Component {
               </Button>
               Lights
              </PageHeader>
-             <MasterLightContainer/>
+             <LightListContainer/>
            </div>
   }
 }

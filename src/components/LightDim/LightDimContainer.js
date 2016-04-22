@@ -2,9 +2,9 @@
 
 import React from 'react'
 import dsClient from '../../client'
-import LightDimType from './LightDimType'
+import LightDim from './LightDim'
 
-export default class LightDimTypeContainer extends React.Component {
+export default class LightDimContainer extends React.Component {
    constructor () {
       super()
 
@@ -15,7 +15,7 @@ export default class LightDimTypeContainer extends React.Component {
    }
 
    componentDidMount () {
-      //console.log('LightDimTypeContainer::componentDidMount()')
+      //console.log('LightDimContainer::componentDidMount()')
       //console.log(this.refs)
       this.levelTopic = this.props.recordName + '/level'
       this.cmdTopic = this.props.recordName + '/cmd'
@@ -24,7 +24,7 @@ export default class LightDimTypeContainer extends React.Component {
    }
 
    componentWillUnmount () {
-      //console.log('LightDimTypeContainer::componentWillUnmount()')
+      //console.log('LightDimContainer::componentWillUnmount()')
       this.record.discard()
    }
 
@@ -43,14 +43,14 @@ export default class LightDimTypeContainer extends React.Component {
    }
 
    render () {
-      return <LightDimType switchHandler = {this.switchHandler}
+      return <LightDim switchHandler = {this.switchHandler}
                            containerHandler = {this.levelHandler}
                            displayName = {this.props.displayName}
                            value={this.state.value}/>
    }
 }
-LightDimTypeContainer.propTypes = {
+LightDimContainer.propTypes = {
    displayName: React.PropTypes.string,
    recordName: React.PropTypes.string.isRequired
 }
-LightDimTypeContainer.defaultProps = { displayName: 'LightDimType' };
+LightDimContainer.defaultProps = { displayName: 'LightDim' };

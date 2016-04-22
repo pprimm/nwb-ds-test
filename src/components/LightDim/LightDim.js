@@ -4,7 +4,7 @@ import React from 'react'
 import Slider from '../Slider'
 import { Button } from 'react-bootstrap'
 
-export default class LightDimType extends React.Component {
+export default class LightDim extends React.Component {
   constructor () {
     super()
 
@@ -36,7 +36,7 @@ export default class LightDimType extends React.Component {
     this.props.switchHandler('off')
   }
   render () {
-      //console.log('LightDimType::render()')
+      //console.log('LightDim::render()')
       return <div className = 'container-slider'>
                <div className='top'>
                   <div className='name'>{this.props.displayName}</div>
